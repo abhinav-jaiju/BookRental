@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+    <div class="container-fluid">
+      <img src="../assets/BRO!.png" alt="" id="nav-img">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink] = "'/admin'">Admin Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Generating Credentials/html/adminhome.html">Add Staff</a>
+          </li>   
+        </ul>
+        <form class="d-flex">
+          
+          <button class="btn btn-outline-danger"  (click) = "logout()">Log Out</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="flex-container" id="flex2">
+        
+    <div>
+        <div class="container" id="items">
+            <div class="header">
+            <!--
+                [] --- property binding
+                () --- event binding 
+                ([])--- banana box for event and property --([ngModel])
+            -->
+        </div>
+        <div class="card-group" *ngFor= "let emp of bookService.fine |filter: filter ">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Book Id :  {{emp.BookId}}</h5>
+                <h5 class="card-title">Book Name :  {{emp.BookName}}</h5>
+                <p class="card-text">MemberName : {{emp.MemberName}}</p>
+                <p class="card-text">MemberId : {{emp.MemberId}}</p>
+                <p class="card-text">RentPrice : {{emp.RentPrice}}</p>
+                <p class="card-text">BookTakenDate : {{emp.BookTakenDate | date:'dd-MMM-yyy'}}</p>
+                <p class="card-text">BookReturnDate : {{emp.BookReturnDate | date:'dd-MMM-yyy'}}</p>
+                  <p class="card-text">Rent Price : {{emp.RentPrice}}</p>
+                  <div class="d-grid gap-2 d-md-flex">
+                    <button class="btn btn-primary " type="button" (click)="updateBook(emp.BookId)">Edit</button>
+                    <button class="btn btn-primary me-md-2"  type="button" id="button2" (click)="deletBook(emp.BookId)">Remove From List</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>

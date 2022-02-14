@@ -1,0 +1,24 @@
+.flex-container{
+    display: flex;
+    flex-direction: column;
+}
+#items{
+    flex-grow: 9;
+    padding: 20px;
+    margin: 20px;
+}
+#userdetails{
+    flex-grow: 1;
+    justify-content: center;
+}
+.card{
+    margin: 20px;
+    justify-content: center;
+    margin-left: 200px;
+    flex-grow: 6;
+    text-align: center;
+}
+#button2{
+    justify-content: end;
+    margin-left: 580px;
+}

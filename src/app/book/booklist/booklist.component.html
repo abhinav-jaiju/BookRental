@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+    <div class="container-fluid">
+      <img src="../assets/BRO!.png" alt="" id="nav-img">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink] = "'/admin'">Admin Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Generating Credentials/html/adminhome.html">Add Staff</a>
+          </li>   
+        </ul>
+        <form class="d-flex">
+          
+          <button class="btn btn-outline-danger"  (click) = "logout()">Log Out</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="header">
+    <div class="form-control">
+        <!--Search functionality-->
+        <input type="text" class="form-control" placeholder="Search text here..."[(ngModel)]="filter" >
+    </div>
+    <!--
+        [] --- property binding
+        () --- event binding 
+        ([])--- banana box for event and property --([ngModel])
+    -->
+    <a class="btn btn-outline-secondary" style="float: right; margin-top: 10px; margin-bottom: 10px;" [routerLink] ="'/book'"> Add Books</a>
+</div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Book Name</th>
+                <th>Author Name</th>
+                <th>Genre Name</th>
+                <th>Publication </th>
+                <th>Price</th>
+                <th>Rent Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor= "let emp of bookService.books |filter: filter | paginate :{ itemsPerPage: 4, currentPage: page}">
+                <td>{{emp.BookId}}</td>
+                <td>{{emp.BookName}}</td>
+                <td>{{emp.AuthorName}}</td>
+                <td>{{emp.GenreName}}</td>
+                <td>{{emp.PublicationName}}</td>
+                <td>{{emp.Price}}</td>
+                <td>{{emp.RentPrice}}</td>
+                <td>
+                    <button class="btn btn-sm btn-info" (click)="updateBook(emp.BookId)"> Edit </button>
+                    &nbsp;
+                    <button class="btn btn-sm btn-outline-danger" (click)="deletBook(emp.BookId)"> X </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <!--Pageination footer-->
+        <pagination-controls (pageChange) = "page = ($event)"></pagination-controls>
+    </div>

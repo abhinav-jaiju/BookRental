@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+    <div class="container-fluid">
+        <img src="../assets/BRO!.png" alt="" id="nav-img">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" [routerLink]="'/fine'">Fine List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" [routerLink]="'/booklist'">Book List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" [routerLink]="'/book'">Add Book</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+
+                <button class="btn btn-outline-danger" (click)="logout()">Log Out</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="flex-container">
+    <div class="container" id="userdetails">
+        <h5>Welcome : {{loggedUser}}</h5>
+        <h5>Id : {{loggedId}}</h5>
+
+    </div>
+
+    <div class="container" id="items">
+        <div class="header">
+            <div class="form-control">
+                <!--Search functionality-->
+                <input type="text" class="form-control" placeholder="Search text here..." [(ngModel)]="filter">
+            </div>
+        </div>
+
+    </div>
+</div>

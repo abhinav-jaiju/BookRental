@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+    <div class="container-fluid">
+      <img src="../assets/BRO!.png" alt="" id="nav-img">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <form class="d-flex">
+          
+          <button class="btn btn-outline-danger"  (click) = "logout()">Log Out</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="card">
+ 
+    <h3>Login here...</h3>
+    <hr>
+    <form [formGroup] = "loginForm" (ngSubmit) = "loginCredentials()">
+        
+      <!--User Name Control-->
+      <div class="card-body">
+            <p>
+              <label for="exampleFormControlInput1" class="form-label">Member Name</label>
+                <input type="UserName" placeholder="Enter User Name" name="MemberName"
+                formControlName = "MemberName" class="form-control" minlength="5" required
+                [ngClass] = "{'is-invalid' : formControls.MemberName.touched && formControls.MemberName.invalid }"
+                autocomplete="off">
+            </p>
+            <!-- <div class="validation"></div> -->
+        </div>
+        <!--UserName Validation-->
+        <!-- <div *ngIf ="isSubmitted && formControls.userName.errors">
+              <div *ngIf = "formControls.userName.errors"
+              style="color:crimson; text-align:left;">
+                  User Name is required!
+              </div>
+        </div> -->
+
+         <!--Password Name Control-->
+      <div>
+          <p>
+            <label for="exampleFormControlInput1" class="form-label">Password</label>
+              <input type="password" placeholder="Enter Password"
+              name="MemberPass"
+                formControlName = "MemberPass" class="form-control" minlength="5" required
+                [ngClass] = "{'is-invalid' : formControls.MemberPass.touched && formControls.MemberPass.invalid }">
+          </p>
+      </div>
+
+      <!--Password  Validation-->
+      <!-- <div *ngIf ="isSubmitted && formControls.password.errors">
+          <div *ngIf = "formControls.password.errors"
+          style="color:crimson; text-align:left;">
+              Password is required!
+          </div>
+    </div> -->
+
+    <!--Button-->
+    <div>
+        <button class="btn btn-primary">Login</button>
+    </div>
+    <div *ngIf = "errors" style="color:crimson; text-align:left;">
+      {{errors}}
+    </div>
+    </form>
+
+</div>

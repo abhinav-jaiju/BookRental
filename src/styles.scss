@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+.form-group>input{
+    font-weight: bolder;
+}
+.form-group>select{
+    font-weight: bolder;
+}
+.form-group input ::placeholder{
+    color: rgb(179, 105, 105);
+}
+table tbody tr:hover{
+    background-color: rgba(143,188,255,0.664);
+}
+input:invalid{
+    border-color: tomato;
+}
+div.validation-error{
+    width: 100%;
+    margin-top: .25em;
+    font-size: 80%;
+    color: #dd3535;
+}
+#navbar {
+	background: #23074d;
+	background: -webkit-linear-gradient(to right, #cc5333, #23074d);
+	background: linear-gradient(to right, #cc5333, #23074d);
+}
+#btn-nav {
+	background-color: #41b3a3;
+	color: beige;
+	opacity: .8;
+	&:hover {
+		background-color: #41b3a3;
+		color: #fff;
+		opacity: 1;
+	}
+}
+#nav-img {
+	height: 50px;
+	width: 100px;
+	
+}
+#body{
+    align-content: center;
+    background-image: url("../src/assets/photo-1523821741446-edb2b68bb7a0.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
