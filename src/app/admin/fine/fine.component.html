@@ -43,7 +43,7 @@
                 <p class="card-text">RentPrice : {{emp.RentPrice}}</p>
                 <p class="card-text">BookTakenDate : {{emp.BookTakenDate | date:'dd-MMM-yyy'}}</p>
                 <p class="card-text">BookReturnDate : {{emp.BookReturnDate | date:'dd-MMM-yyy'}}</p>
-                  <p class="card-text">Rent Price : {{emp.RentPrice}}</p>
+                  <p class="card-text">Fine : {{emp.fine}}</p>
                   <div class="d-grid gap-2 d-md-flex">
                     <button class="btn btn-primary " type="button" (click)="updateBook(emp.BookId)">Edit</button>
                     <button class="btn btn-primary me-md-2"  type="button" id="button2" (click)="deletBook(emp.BookId)">Remove From List</button>
